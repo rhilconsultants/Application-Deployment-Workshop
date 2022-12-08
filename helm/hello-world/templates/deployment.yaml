@@ -1,32 +1,32 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: hello-world
+  name: {{ .Release.Name }}
   annotations:
     deployment.kubernetes.io/revision: '5'
 spec:
-  replicas: 3
+  replicas: {{ .Values.ReplicaNumber }}
   selector:
     matchLabels:
-      app: hello-world
+      app: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: hello-world
+        app: {{ .Release.Name }}
     spec:
       volumes:
-        - name: index-html
+        - name: {{ .Release.Name }}-html
           configMap:
-            name: index.html
+            name: {{ .Release.Name }}-html
             defaultMode: 420
       containers:
         - resources: 
             limits:
-              cpu: 250m
-              memory: 512Mi
+              cpu: {{ .Values.resources.limits.cpu }}
+              memory: {{ .Values.resources.limits.memory }}
             requests:
-              cpu: 100m
-              memory: 256Mi
+              cpu: {{ .Values.resources.requests.cpu }}
+              memory: {{ .Values.resources.requests.memory }}
           readinessProbe:
             httpGet:
               path: /health/readiness
@@ -38,7 +38,7 @@ spec:
             successThreshold: 1
             failureThreshold: 3
           terminationMessagePath: /dev/termination-log
-          name: hello-world
+          name: {{ .Release.Name }}
           livenessProbe:
             httpGet:
               path: /health/liveliness
@@ -53,14 +53,14 @@ spec:
             - name: PORT
               value: '8080'
           ports:
-            - containerPort: 8080
+            - containerPort: {{ .Values.containers.containerPort }}
               protocol: TCP
           imagePullPolicy: IfNotPresent
           volumeMounts:
-            - name: index-html
+            - name: {{ .Release.Name }}-html
               mountPath: /tmp/html
           terminationMessagePolicy: File
-          image: 'quay.io/argo-helm-workshop/hello-world:base'
+          image: {{ .Values.containers.image }}
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
   strategy:
