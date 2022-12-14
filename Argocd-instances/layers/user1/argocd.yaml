@@ -7,5 +7,6 @@ spec:
     defaultPolicy: ''
     policy: |
       g, system:cluster-admins, role:admin
+      g, user1, role:admin
     scopes: '[groups]'
 
