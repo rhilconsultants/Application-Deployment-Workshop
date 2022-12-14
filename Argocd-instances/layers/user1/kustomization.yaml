@@ -1,0 +1,6 @@
+apiVersion: kustomi
+kind: Kustomization
+
+resources:
+- ../../base
+

@@ -14,9 +14,6 @@ spec:
       name: '{{metadata.name}}'
     spec:
       project: default
-    syncPolicy:
-      syncOptions:
-        - CreateNamespace=true
       source:
         repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
         targetRevision: HEAD
@@ -24,3 +21,6 @@ spec:
       destination:
         server: 'https://kubernetes.default.svc'
         namespace: '{{metadata.name}}'
+      syncPolicy:
+        syncOptions:
+          - CreateNamespace=true

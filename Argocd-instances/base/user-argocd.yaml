@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  name: user2-argocd
+  name: NO-NAME
 spec:
   server:
     autoscale:
