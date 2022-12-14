@@ -5,6 +5,7 @@ namePrefix: user1-
 
 resources:
 - ../../base
+- namespace
 
 patchesStrategicMerge:
 - argocd.yaml
