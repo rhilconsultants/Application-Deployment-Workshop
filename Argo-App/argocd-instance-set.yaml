@@ -14,6 +14,9 @@ spec:
       name: '{{metadata.name}}'
     spec:
       project: default
+    syncPolicy:
+      syncOptions:
+        - CreateNamespace=true
       source:
         repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
         targetRevision: HEAD
