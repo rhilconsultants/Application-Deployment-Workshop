@@ -8,16 +8,16 @@ spec:
       repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
       revision: main
       files:
-      - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
+      - path: "Argocd-instances/user*-argocd.yaml"
   template:
     metadata:
-      name: '{{cluster.name}}-guestbook'
+      name: '{{metadata.name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/argoproj/applicationset.git
+        repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
         targetRevision: HEAD
-        path: "examples/git-generator-files-discovery/apps/guestbook"
+        path: "Argocd-instances/"
       destination:
-        server: '{{cluster.address}}'
-        namespace: guestbook
+        server: 'https://kubernetes.default.svc'
+        namespace: '{{metadata.name}}'
