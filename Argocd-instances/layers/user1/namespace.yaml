@@ -1,0 +1,7 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: user1-application
+spec:
+  finalizers:
+    - kubernetes
