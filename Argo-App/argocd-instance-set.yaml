@@ -1,26 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: argocd-instances
+  name: argocd-instances-set
 spec:
   generators:
   - git:
       repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
       revision: main
-      files:
-      - path: "Argocd-instances/user*-argocd.yaml"
+      directories:
+      - path: Argocd-instances/layers/*
   template:
     metadata:
-      name: '{{metadata.name}}'
+      name: '{{path.basename}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
-        targetRevision: HEAD
-        path: "Argocd-instances/"
+        targetRevision: main
+        path: '{{path}}'
       destination:
-        server: 'https://kubernetes.default.svc'
-        namespace: '{{metadata.name}}'
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}-argocd'
       syncPolicy:
         syncOptions:
           - CreateNamespace=true
+        
