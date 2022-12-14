@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: argocd-instances
+spec:
+  generators:
+  - git:
+      repoURL: https://github.com/rhilconsultants/app-helm-argocd.git
+      revision: main
+      files:
+      - path: "examples/git-generator-files-discovery/cluster-config/**/config.json"
+  template:
+    metadata:
+      name: '{{cluster.name}}-guestbook'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/argoproj/applicationset.git
+        targetRevision: HEAD
+        path: "examples/git-generator-files-discovery/apps/guestbook"
+      destination:
+        server: '{{cluster.address}}'
+        namespace: guestbook
