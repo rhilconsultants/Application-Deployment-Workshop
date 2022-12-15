@@ -3,3 +3,4 @@ kind: Kustomization
 
 resources:
 - user-argocd.yaml
+- test-app.yaml
