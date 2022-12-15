@@ -2,8 +2,6 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: hello-world
-  annotations:
-    deployment.kubernetes.io/revision: '5'
 spec:
   replicas: 3
   selector:
