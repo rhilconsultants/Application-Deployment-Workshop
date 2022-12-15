@@ -6,9 +6,7 @@ namePrefix: user1-
 resources:
 - ../../base
 - namespace.yaml
-- RB-1.yaml
-- RB-2.yaml
-- group.yaml
+
 
 patchesStrategicMerge:
 - argocd.yaml
