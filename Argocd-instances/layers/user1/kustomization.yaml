@@ -8,6 +8,7 @@ resources:
 - namespace.yaml
 - RB-1.yaml
 - RB-2.yaml
+- CRB.yaml
 
 
 patchesStrategicMerge:
