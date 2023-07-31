@@ -22,6 +22,9 @@ spec:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}-argocd'
       syncPolicy:
+        managedNamespaceMetadata:
+          labels:
+            
         automated:
           prune: true
           selfHeal: true
