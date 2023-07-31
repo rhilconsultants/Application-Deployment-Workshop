@@ -3,6 +3,8 @@ kind: ArgoCD
 metadata:
   name: argocd
 spec:
+  extraConfig:
+    exec.enabled: true
   server:
     autoscale:
       enabled: false
