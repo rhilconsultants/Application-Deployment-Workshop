@@ -5,6 +5,7 @@ metadata:
 spec:
   extraConfig:
     exec.enabled: "true"
+    exec.shells: 'bash, sh'
   server:
     insecure: true
     autoscale:
