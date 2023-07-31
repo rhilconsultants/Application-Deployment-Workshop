@@ -54,6 +54,7 @@ spec:
   rbac:
     defaultPolicy: ''
     policy: |
+      p, role:admin, exec, create, */*, allow
       g, system:cluster-admins, role:admin
     scopes: '[groups]'
   repo:
