@@ -5,4 +5,4 @@ apiVersion: user.openshift.io/v1
 metadata:
   name: group
 users:
-  - user1
+  - user22

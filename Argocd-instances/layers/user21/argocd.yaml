@@ -9,5 +9,5 @@ spec:
     defaultPolicy: ''
     policy: |
       g, system:cluster-admins, role:admin
-      g, user1-group, role:admin
+      g, user21-group, role:admin
     scopes: '[groups]'

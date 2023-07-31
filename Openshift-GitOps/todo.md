@@ -14,10 +14,26 @@ oc adm policy add-role-to-user admin user{n}} -n user{n}-application
 ## to create a new user layer navigate to Openshift-GitOps->user-helm-template, and run the following command
 
 ```Bash
-helm template new-user . --set userName=user{n} --output-dir user{n}}
+./create-intances.sh 'starting user numer' 'end user numeber'
+
+exmaple:
+./create-intances.sh 1 5
 ```
-1. the --set will update all the tempalte with the new user number
-2. the --output-dir will output the files in to a new dirctory.
-3. the output folder is then filled with 2 new sub folders "user-tempalte/templates"
-4. cut all the YAML files form the templates to the user{n} folder and delete those folders
-5. copy the new folder to the ArgoCD-instancs/layers folder to created a new user work env.
+
+this will create 5 new user layers under the Argocd-instances/layers folder
+
+## to delete all created namespaces run the following
+
+```Bash
+./delete-ns.sh 1 20
+```
+
+this will delete all argocd and application namespaces for users 1-20
+
+## to restart all dex and argocd-servers run the following
+
+```Bash
+./restart.sh 1 15
+```
+
+this will restart all argocd-server and dex-server to users 1-15

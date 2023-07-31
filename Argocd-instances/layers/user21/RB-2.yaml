@@ -1,14 +1,14 @@
 ---
-# Source: Workshop-instances/templates/RB-1.yaml
+# Source: Workshop-instances/templates/RB-2.yaml
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: admin
-  namespace: user1-application
+  namespace: user21-argocd
 subjects:
   - kind: User
     apiGroup: rbac.authorization.k8s.io
-    name: user1
+    name: user21
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
