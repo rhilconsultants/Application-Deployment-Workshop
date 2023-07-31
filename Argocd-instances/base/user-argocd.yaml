@@ -6,6 +6,7 @@ spec:
   extraConfig:
     exec.enabled: true
   server:
+    insecure: true
     autoscale:
       enabled: false
     grpc:
