@@ -8,3 +8,4 @@ resources:
 - CRB.yaml
 - group.yaml
 - RB.yaml
+- argocd-instance-set.yaml
