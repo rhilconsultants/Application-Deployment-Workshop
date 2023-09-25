@@ -1,10 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  name: argocd
+  name: openshift-gitops
   namespace: openshift-gitops
 spec:
   server:
+    insecure: true
     autoscale:
       enabled: true
     grpc:
