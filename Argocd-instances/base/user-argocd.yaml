@@ -7,7 +7,7 @@ spec:
     exec.enabled: "true"
     exec.shells: 'bash'
   server:
-    # insecure: true
+    insecure: true
     autoscale:
       enabled: false
     grpc:
