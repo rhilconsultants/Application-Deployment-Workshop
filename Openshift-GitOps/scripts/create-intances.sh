@@ -11,9 +11,9 @@ RANAGE_END=$2
 for ((i=RANAGE_START; i<=RANAGE_END; i++))
 do
     echo "create user$i instance"
-    helm template new-user user-helm-template/ --set userName=user$i --output-dir user$i
+    helm template new-user ../user-helm-template/ --set userName=user$i --output-dir user$i
     echo "move user$i instance to layers folder"
     mv user$i/Workshop-instances/templates/* user$i/
     rm -rf user$i/Workshop-instances
-    mv -fu user$i/ ../Argocd-instances/layers/
+    mv -fu user$i/ ../../Argocd-instances/layers/
 done
