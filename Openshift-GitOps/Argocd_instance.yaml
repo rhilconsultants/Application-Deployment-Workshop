@@ -1,4 +1,4 @@
-apiVersion: argoproj.io/v1alpha1
+apiVersion: argoproj.io/v1beta1
 kind: ArgoCD
 metadata:
   name: openshift-gitops
@@ -23,7 +23,7 @@ spec:
     route:
       enabled: true
     service:
-      type: ''
+      type: ""
   grafana:
     enabled: false
     ingress:
@@ -52,16 +52,16 @@ spec:
     provider: dex
   applicationSet: {}
   rbac:
-    defaultPolicy: ''
+    defaultPolicy: ""
     policy: |
       g, system:cluster-admins, role:admin
       g, opentlc-mgr, role:admin
       g, admin, role:admin
-    scopes: '[groups]'
+    scopes: "[groups]"
   repo:
     resources:
       limits:
-        cpu: '1'
+        cpu: "1"
         memory: 1Gi
       requests:
         cpu: 250m
@@ -73,7 +73,7 @@ spec:
       - '*'
       kinds:
       - TaskRun
-      - PipelineRun        
+      - PipelineRun
   ha:
     enabled: false
     resources:
@@ -97,10 +97,9 @@ spec:
     processors: {}
     resources:
       limits:
-        cpu: '2'
+        cpu: "2"
         memory: 2Gi
       requests:
         cpu: 250m
         memory: 1Gi
     sharding: {}
-
