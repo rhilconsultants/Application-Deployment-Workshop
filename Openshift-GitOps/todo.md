@@ -1,5 +1,10 @@
 # This manual of how to create and work with Argocd and manage user layers
 
+## Try First to bootstrap all with
+```Bash
+oc apply -k ./Openshift-GitOps
+```
+
 ## add cluster admin to the ArgoCD ServiceAccount
 
 ```Bash
